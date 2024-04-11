@@ -1,16 +1,15 @@
-import React from "react";
 import "./App.css";
 import Navigations from "./components/Navigations";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
 
 const App = () => {
   return (
-    <div className="flex h-screen">
-      <Navigations />
-
-      <Feed/>
-
-      <div className="w-[32%] bg-gray-200"></div>
-    </div>
+    <>
+      <Routes>
+        <Route element={<Home />} path="/" />
+      </Routes>
+    </>
   );
 };
 
