@@ -5,7 +5,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { CgSearch } from "react-icons/cg";
 import { FiBell } from "react-icons/fi";
 import { HiOutlineEnvelope } from "react-icons/hi2";
-import { BsBookmark } from "react-icons/bs";
+import { GoBookmark } from "react-icons/go";
 
 const Navigations = () => {
   return (
@@ -47,7 +47,7 @@ const Navigations = () => {
         </div>
         <div className="flex items-center gap-[20px] hover:bg-gray-300  py-2.5 rounded-3xl  w-min px-5 cursor-pointer">
           <div>
-            <BsBookmark style={{ width: "32px", height: "32px" }} />
+            <GoBookmark style={{ width: "32px", height: "32px" }} />
           </div>
           <div className="text-xl font-semibold">Bookmarks</div>
         </div>
