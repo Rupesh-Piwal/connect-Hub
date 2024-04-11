@@ -7,7 +7,7 @@ const App = () => {
     <div className="flex h-screen">
       <Navigations />
 
-      <div className=" w-[46%] overflow-y-auto custom-scrollbar bg-gray-600"></div>
+      <Feed/>
 
       <div className="w-[32%] bg-gray-200"></div>
     </div>

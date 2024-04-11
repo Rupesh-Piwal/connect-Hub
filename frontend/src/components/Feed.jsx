@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Feed = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div className=" w-[46%] overflow-y-auto custom-scrollbar bg-gray-600"></div>
+  );
+};
 
-export default Feed
+export default Feed;
