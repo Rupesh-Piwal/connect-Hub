@@ -6,6 +6,7 @@ import { CgSearch } from "react-icons/cg";
 import { FiBell } from "react-icons/fi";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { GoBookmark } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Navigations = () => {
   return (
@@ -59,12 +60,14 @@ const Navigations = () => {
         </div>
         <div className="profile flex items-center gap-[20px] cursor-pointer hover:bg-gray-300 py-3 rounded-3xl">
           <div>
-            <img
-              style={{ width: "50px" }}
-              className="rounded-full ml-3"
-              src="https://avatars.githubusercontent.com/u/97403179?s=400&u=ef6d2576225d289c623027bb4f8246251d424cba&v=4"
-              alt=""
-            />
+            <Link to={"/"}>
+              <img
+                style={{ width: "50px" }}
+                className="rounded-full ml-3"
+                src="https://avatars.githubusercontent.com/u/97403179?s=400&u=ef6d2576225d289c623027bb4f8246251d424cba&v=4"
+                alt=""
+              />
+            </Link>
           </div>
           <div>
             <p className="font-semibold">Rupesh Piwal</p>
