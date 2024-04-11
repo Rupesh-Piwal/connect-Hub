@@ -1,9 +1,17 @@
-import "./App.css";
-
 import React from "react";
+import "./App.css";
+import Navigations from "./components/Navigations";
 
 const App = () => {
-  return <div className="text-3xl text-violet-700">Connect Hub</div>;
+  return (
+    <div className="flex h-screen">
+      <Navigations />
+
+      <div className=" w-[46%] overflow-y-auto custom-scrollbar bg-gray-600"></div>
+
+      <div className="w-[32%] bg-gray-200"></div>
+    </div>
+  );
 };
 
 export default App;
