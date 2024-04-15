@@ -4,7 +4,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { useState } from "react";
-import Feed1 from "./Feed1";
+import Post from "./Post";
 
 const FeedTabs = () => {
   const [value, setValue] = useState("1");
@@ -29,7 +29,7 @@ const FeedTabs = () => {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <Feed1 />
+          <Post />
         </TabPanel>
         <TabPanel value="2">Item Two</TabPanel>
         {/* <TabPanel value="3">Item Three</TabPanel> */}
