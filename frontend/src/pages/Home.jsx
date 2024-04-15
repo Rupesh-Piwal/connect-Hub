@@ -5,7 +5,7 @@ import RightColumn from "../components/RightColumn";
 
 const Home = () => {
   return (
-    <div className="flex h-screen">
+    <div className="grid lg:grid-cols-3  ">
       <Navigations />
       <Feed />
       <RightColumn />

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Navigations = () => {
   return (
-    <div className="w-[32%] bg-white font-sans ">
+    <div className=" hidden lg:w-[32%]  bg-white font-sans ">
       <div className="ml-[30%] border-2 w-[70%] h-full border-black flex flex-col gap-[18px] pt-3">
         <div>
           <img className="ml-5" style={{ width: "36px" }} src={Logo} alt="" />
