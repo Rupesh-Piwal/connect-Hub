@@ -4,7 +4,8 @@ import Logo from "../assets/twitter-logo.jpg";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import NavsMobile from "./NavsMobile.jsx";
-
+import FollowingFeed from "./FollowingFeed.jsx";
+import Post from "./Post.jsx";
 
 const Feed = () => {
   return (
@@ -34,7 +35,12 @@ const Feed = () => {
         </div>
       </div>
       <div className="w-full lg:w-[46%] overflow-y-auto custom-scrollbar bg-black">
-        <FeedTabs />
+        <FeedTabs
+          tab1Label="For You"
+          tab2Label="Following"
+          tab1Content= {<Post />}
+          tab2Content={<FollowingFeed />}
+        />
       </div>
       <NavsMobile />
     </div>

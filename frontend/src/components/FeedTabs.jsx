@@ -4,9 +4,8 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { useState } from "react";
-import Post from "./Post";
 
-const FeedTabs = () => {
+const FeedTabs = ({ tab1label, tab2label }) => {
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -33,22 +32,10 @@ const FeedTabs = () => {
               label="Following"
               value="2"
             />
-            {/* <Tab label="Item Three" value="3" /> */}
           </TabList>
         </Box>
-        <TabPanel value="1">
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-        </TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        {/* <TabPanel value="3">Item Three</TabPanel> */}
+        <TabPanel value="1">{tab1label}</TabPanel>
+        <TabPanel value="2">{tab2label}</TabPanel>
       </TabContext>
     </Box>
   );
