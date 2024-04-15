@@ -1,8 +1,8 @@
-import FeedTabs from "../components/FeedTabs";
+
 import FollowingFeed from "../components/FollowingFeed";
 import Post from "../components/Post";
 
-const Profile = ({  }) => {
+const Profile = ({}) => {
   return (
     <>
       <div className="relative">
@@ -32,13 +32,6 @@ const Profile = ({  }) => {
           2034 <span>Followers</span>
         </p>
       </div>
-
-      <FeedTabs
-        tab1Label="For You"
-        tab2Label="Following"
-        tab1Content={<Post />}
-        tab2Content={<FollowingFeed />}
-      />
     </>
   );
 };
