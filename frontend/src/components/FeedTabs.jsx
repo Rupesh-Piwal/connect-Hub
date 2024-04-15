@@ -23,8 +23,16 @@ const FeedTabs = () => {
           }}
         >
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab style={{ width: "50%" }} label="For You" value="1" />
-            <Tab style={{ width: "50%" }} label="Following" value="2" />
+            <Tab
+              style={{ width: "50%", color: "#8B5CF6" }}
+              label="For You"
+              value="1"
+            />
+            <Tab
+              style={{ width: "50%", color: "#8B5CF6" }}
+              label="Following"
+              value="2"
+            />
             {/* <Tab label="Item Three" value="3" /> */}
           </TabList>
         </Box>

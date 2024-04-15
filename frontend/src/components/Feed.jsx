@@ -6,8 +6,8 @@ import { AiFillBell } from "react-icons/ai";
 
 const Feed = () => {
   return (
-    <>
-      <div className="w-full h-[100px] bg-black lg:hidden flex justify-between items-center px-1.5 ">
+    <div className="w-full lg:w-[46%]">
+      <div className="w-full bg-black lg:hidden flex justify-between items-center px-1.5 ">
         <div>
           <Link to={"/"}>
             <img
@@ -31,10 +31,10 @@ const Feed = () => {
           />
         </div>
       </div>
-      <div className="w-full lg:w-[46%] overflow-y-auto custom-scrollbar bg-gray-600">
+      <div className="w-full lg:w-[46%] overflow-y-auto custom-scrollbar bg-black">
         <FeedTabs />
       </div>
-    </>
+    </div>
   );
 };
 

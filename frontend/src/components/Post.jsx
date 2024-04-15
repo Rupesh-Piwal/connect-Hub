@@ -1,99 +1,65 @@
 import { FaRegComment } from "react-icons/fa";
+import { FaRetweet } from "react-icons/fa6";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiBookmark } from "react-icons/bi";
 
 const Post = () => {
   return (
     <>
-      <div className="bg-yellow-400 w-full h-[250px] m-2 flex flex-row relative  ">
-        <div className="bg-blue-300 w-[18%]">
+      <div className=" w-full  m-2 flex flex-row  border-2 border-gray-700 bg-black  ">
+        <div className=" w-[18%]">
           <img
-            style={{ width: "40px" }}
-            className="rounded-full ml-3"
+            className="rounded-full mx-[25%] my-3 w-[40px] sm:w-[60px]"
             src="https://avatars.githubusercontent.com/u/97403179?s=400&u=ef6d2576225d289c623027bb4f8246251d424cba&v=4"
             alt=""
           />
         </div>
-        <div className=" w-[82%] bg-red-200 pl-2">
-          <div className=" bg-green-300 flex flex-row gap-2 ">
-            <p>Rupesh Piwal</p>
-            <p>rupeshtwts</p>
-            <p>20 hr</p>
+        <div className=" w-[82%] pl-2">
+          <div className="  flex flex-row gap-2 ">
+            <p className="font-bold text-white">Rupesh Piwal</p>
+            <p className="text-gray-400">@rupeshtwts</p>
+            <p className="text-gray-400">14h</p>
           </div>
-          <div className="bg-purple-200">
+          <div className=" mt-3 mb-5 text-gray-500">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit{" "}
           </div>
-          <div className="flex flex-row justify-center items-center gap-[40px] left-[18%] bg-indigo-400 absolute bottom-0 h-[30px]">
+          <div className="flex flex-row justify-start items-center gap-[60px]   h-[30px] ">
             <div className="flex items-center gap-2">
-              <FaRegComment /> <p>30</p>
+              <FaRegComment
+                className="hover:bg-blue-400 rounded-full "
+                style={{
+                  color: "gray",
+                  cursor: "pointer",
+                  width: "30px",
+                }}
+              />{" "}
+              <p className="text-gray-500">30</p>
             </div>
             <div className="flex items-center gap-2">
-              <AiOutlineHeart /> <p>30</p>
+              <FaRetweet
+                style={{
+                  color: "gray",
+                  cursor: "pointer",
+                }}
+              />{" "}
+              <p className="text-gray-500">5</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <AiOutlineHeart
+                style={{
+                  color: "gray",
+                  cursor: "pointer",
+                }}
+              />{" "}
+              <p className="text-gray-500">30</p>
             </div>
             <div>
-              <BiBookmark />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-yellow-400 w-full h-[250px] m-2 flex flex-row relative ">
-        <div className="bg-blue-300 w-[18%]">
-          <img
-            style={{ width: "40px" }}
-            className="rounded-full ml-3"
-            src="https://avatars.githubusercontent.com/u/97403179?s=400&u=ef6d2576225d289c623027bb4f8246251d424cba&v=4"
-            alt=""
-          />
-        </div>
-        <div className=" w-[82%] bg-red-200 pl-2">
-          <div className=" bg-green-300 flex flex-row gap-2 ">
-            <p>Rupesh Piwal</p>
-            <p>rupeshtwts</p>
-            <p>20 hr</p>
-          </div>
-          <div className="bg-purple-200">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit{" "}
-          </div>
-          <div className="flex flex-row justify-center items-center gap-[40px] left-[18%] bg-indigo-400 absolute bottom-0 h-[30px]">
-            <div className="flex items-center gap-2">
-              <FaRegComment /> <p>30</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <AiOutlineHeart /> <p>30</p>
-            </div>
-            <div>
-              <BiBookmark />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-yellow-400 w-full h-[250px] m-2 flex flex-row relative ">
-        <div className="bg-blue-300 w-[18%]">
-          <img
-            style={{ width: "40px" }}
-            className="rounded-full ml-3"
-            src="https://avatars.githubusercontent.com/u/97403179?s=400&u=ef6d2576225d289c623027bb4f8246251d424cba&v=4"
-            alt=""
-          />
-        </div>
-        <div className=" w-[82%] bg-red-200 pl-2">
-          <div className=" bg-green-300 flex flex-row gap-2 ">
-            <p>Rupesh Piwal</p>
-            <p>rupeshtwts</p>
-            <p>20 hr</p>
-          </div>
-          <div className="bg-purple-200">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit{" "}
-          </div>
-          <div className="flex flex-row justify-center items-center gap-[40px] left-[18%] bg-indigo-400 absolute bottom-0 h-[30px]">
-            <div className="flex items-center gap-2">
-              <FaRegComment /> <p>30</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <AiOutlineHeart /> <p>30</p>
-            </div>
-            <div>
-              <BiBookmark />
+              <BiBookmark
+                style={{
+                  color: "gray",
+                  cursor: "pointer",
+                }}
+              />
             </div>
           </div>
         </div>
