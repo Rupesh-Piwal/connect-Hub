@@ -38,6 +38,14 @@ const FeedTabs = () => {
         </Box>
         <TabPanel value="1">
           <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
         </TabPanel>
         <TabPanel value="2">Item Two</TabPanel>
         {/* <TabPanel value="3">Item Three</TabPanel> */}

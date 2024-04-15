@@ -2,12 +2,14 @@ import React from "react";
 import FeedTabs from "./FeedTabs";
 import Logo from "../assets/twitter-logo.jpg";
 import { Link } from "react-router-dom";
-import { AiFillBell } from "react-icons/ai";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import NavsMobile from "./NavsMobile.jsx";
+
 
 const Feed = () => {
   return (
-    <div className="w-full lg:w-[46%]">
-      <div className="w-full bg-black lg:hidden flex justify-between items-center px-1.5 ">
+    <div className="w-full lg:w-[46%] ">
+      <div className="w-full bg-black lg:hidden flex justify-between items-center px-1.5 py-4">
         <div>
           <Link to={"/"}>
             <img
@@ -22,11 +24,11 @@ const Feed = () => {
           <img src={Logo} alt="" width="40px" />
         </div>
         <div>
-          <AiFillBell
+          <AiOutlinePlusCircle
             style={{
-              color: "#ffffff",
-              width: "30px",
-              height: "35px",
+              color: "#8B5CF6",
+              width: "40px",
+              height: "40px",
             }}
           />
         </div>
@@ -34,6 +36,7 @@ const Feed = () => {
       <div className="w-full lg:w-[46%] overflow-y-auto custom-scrollbar bg-black">
         <FeedTabs />
       </div>
+      <NavsMobile />
     </div>
   );
 };

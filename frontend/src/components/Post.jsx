@@ -6,7 +6,7 @@ import { BiBookmark } from "react-icons/bi";
 const Post = () => {
   return (
     <>
-      <div className=" w-full  m-2 flex flex-row  border-2 border-gray-700 bg-black  ">
+      <div className=" w-full  m-2 flex flex-row  border-t border-gray-700 bg-black  ">
         <div className=" w-[18%]">
           <img
             className="rounded-full mx-[25%] my-3 w-[40px] sm:w-[60px]"
@@ -14,19 +14,17 @@ const Post = () => {
             alt=""
           />
         </div>
-        <div className=" w-[82%] pl-2">
+        <div className=" w-[82%] pl-2 mt-3">
           <div className="  flex flex-row gap-2 ">
             <p className="font-bold text-white">Rupesh Piwal</p>
-            <p className="text-gray-400">@rupeshtwts</p>
-            <p className="text-gray-400">14h</p>
+            <p className="text-gray-500">@rupeshtwts</p>
+            <p className="text-gray-500 font-se">14h</p>
           </div>
-          <div className=" mt-3 mb-5 text-gray-500">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit{" "}
-          </div>
-          <div className="flex flex-row justify-start items-center gap-[60px]   h-[30px] ">
+          <div className=" mt-3 mb-5 text-white">i got remote job...!!!</div>
+          <div className="flex flex-row justify-start items-center gap-[50px]   h-[30px] ">
             <div className="flex items-center gap-2">
               <FaRegComment
-                className="hover:bg-blue-400 rounded-full "
+                className=" rounded-full "
                 style={{
                   color: "gray",
                   cursor: "pointer",
