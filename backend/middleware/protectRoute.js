@@ -26,4 +26,4 @@ export const protectRoute = async (req, res, next) => {
 		console.log("Error in protectRoute middleware", err.message);
 		return res.status(500).json({ error: "Internal Server Error" });
 	}
-};
+}; 
