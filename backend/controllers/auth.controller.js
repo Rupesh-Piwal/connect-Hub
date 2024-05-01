@@ -1,7 +1,6 @@
-// import User from "../models/user.model.js";
-// import bcrypt from "bcryptjs";
-
-import { generateTokenAndSetCookie } from "../utils/generateToken.js";
+import { generateTokenAndSetCookie } from "../lib/utils/generateToken.js";
+import User from "../models/user.model.js";
+import bcrypt from "bcryptjs";
 
 export const signup = async (req, res) => {
 	try {
@@ -28,10 +27,6 @@ export const signup = async (req, res) => {
 
 		const salt = await bcrypt.genSalt(10);
 		const hashedPassword = await bcrypt.hash(password, salt);
-
-// const salt = await bcrypt.genSalt(10)
-// const hashedPassword = await bcrypt.hash(password, salt)
-
 
 		const newUser = new User({
 			fullName,
