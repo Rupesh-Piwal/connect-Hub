@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
 import Sidebar from "./components/common/Sidebar.jsx"
+import RightPanel from "./components/common/RightPanel.jsx";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route element={<Register />} path="/register" />
         <Route element={<Login />} path="/login" />
       </Routes>
+      <RightPanel/>
     </div>
   );
 };
