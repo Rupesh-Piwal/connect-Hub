@@ -7,9 +7,6 @@ import { MdPassword } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import XLogo from "../components/XLogo";
 
-
-
-
 const Register = () => {
   const [formData, setFormData] = useState({
     email: "",
