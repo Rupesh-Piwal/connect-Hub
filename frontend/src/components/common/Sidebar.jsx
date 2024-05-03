@@ -7,9 +7,9 @@ import XLogo from "../XLogo";
 
 const Sidebar = () => {
 	const data = {
-		fullName: "John Doe",
-		username: "johndoe",
-		profileImg: "/avatars/boy1.png",
+		fullName: "Cristiano",
+		username: "ronaldo",
+		profileImg: "/avatars/CR7.webp",
 	};
 
 	return (
