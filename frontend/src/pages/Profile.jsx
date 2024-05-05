@@ -7,6 +7,7 @@ import { FaLink } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { POSTS } from "../utils/dummy";
 import Posts from "../components/common/Posts";
+import ProfileHeaderSkeleton from "../components/skeletons/ProfileHeaderSkeleton";
 
 const Profile = () => {
   const [coverImg, setCoverImg] = useState(null);
@@ -16,7 +17,7 @@ const Profile = () => {
   const coverImgRef = useRef(null);
   const profileImgRef = useRef(null);
 
-  const isLoading = true;
+  const isLoading = false;
   const isMyProfile = true;
 
   const user = {
