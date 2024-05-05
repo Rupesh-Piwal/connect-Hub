@@ -16,7 +16,7 @@ const Profile = () => {
   const coverImgRef = useRef(null);
   const profileImgRef = useRef(null);
 
-  const isLoading = false;
+  const isLoading = true;
   const isMyProfile = true;
 
   const user = {
@@ -84,12 +84,14 @@ const Profile = () => {
                 <input
                   type="file"
                   hidden
+                  accept="image/*"
                   ref={coverImgRef}
                   onChange={(e) => handleImgChange(e, "coverImg")}
                 />
                 <input
                   type="file"
                   hidden
+                  accept="image/*"
                   ref={profileImgRef}
                   onChange={(e) => handleImgChange(e, "profileImg")}
                 />
