@@ -7,8 +7,10 @@ import { MdDriveFileRenameOutline } from "react-icons/md";
 import XLogo from "../components/XLogo";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     username: "",
@@ -26,18 +28,19 @@ const Register = () => {
           },
           body: JSON.stringify({ email, username, fullName, password }),
         });
-        // if (!res.ok) throw new Error("Something went wrong");
+
         const data = await res.json();
-        if (data.error) throw new Error(data.error);
+        if (!res.ok) throw new Error(data.error || "Failed to create account");
         console.log(data);
         return data;
       } catch (error) {
         console.error(error);
-        toast.error(error.message);
+        throw error;
       }
     },
     onSuccess: () => {
-      toast.success("Account created successfully...!");
+      toast.success("Account created successfully");
+      navigate("/login");
     },
   });
 
@@ -112,9 +115,15 @@ const Register = () => {
             />
           </label>
           <button className="btn rounded-full btn-primary text-white">
-            {isPending ? "Loading..." : "Register"}
+            {isPending ? (
+              <span className="loading loading-dots loading-lg"></span>
+            ) : (
+              "Register"
+            )}
           </button>
-          {isError && <p className="text-red-500">{error.message}</p>}
+          {isError && (
+            <p className="text-red-500 text-center">{error.message}</p>
+          )}
         </form>
         <div className="flex flex-col lg:w-2/3 gap-2 mt-4">
           <p className="text-white text-lg">Already have an account?</p>
