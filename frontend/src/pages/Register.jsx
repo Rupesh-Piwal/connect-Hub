@@ -6,6 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import XLogo from "../components/XLogo";
+import { useMutation } from "@tanstack/react-query";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,9 @@ const Register = () => {
     fullName: "",
     password: "",
   });
+
+ useMutation() // used to manipulate data: CREATE, UPDATE, DELETE
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
