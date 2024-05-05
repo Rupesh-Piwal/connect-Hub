@@ -1,14 +1,47 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { MdOutlineMail } from "react-icons/md";
 import { MdPassword } from "react-icons/md";
 import XLogo from "../components/XLogo";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
+  });
+  const queryClient = useQueryClient();
+
+  const {
+    mutate: loginMutation,
+    isPending,
+    isError,
+    error,
+  } = useMutation({
+    mutationFn: async ({ username, password }) => {
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const data = await res.json();
+        console.log(data);
+
+        if (!res.ok) {
+          throw new Error(data.error || "Something went wrong");
+        }
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+    onSuccess: () => {
+      // refetch the authUser
+      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+    },
   });
 
   const handleSubmit = (e) => {
@@ -19,8 +52,6 @@ const Login = () => {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const isError = false;
 
   return (
     <div className="max-w-screen-xl mx-auto flex h-screen">
@@ -55,7 +86,11 @@ const Login = () => {
             />
           </label>
           <button className="btn rounded-full btn-primary text-white">
-            Login
+            {isPending ? (
+              <span className="loading loading-dots loading-lg"></span>
+            ) : (
+              "Login"
+            )}
           </button>
           {isError && <p className="text-red-500">Something went wrong</p>}
         </form>
