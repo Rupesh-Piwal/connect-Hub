@@ -7,6 +7,7 @@ import Notifications from "./pages/Notifications.jsx";
 import Profile from "./pages/Profile.jsx";
 import Sidebar from "./components/common/Sidebar.jsx";
 import RightPanel from "./components/common/RightPanel.jsx";
+import Toaster from "react-hot-toast";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route element={<Profile />} path="/profile/:username" />
       </Routes>
       <RightPanel />
+      <Toaster />
     </div>
   );
 };

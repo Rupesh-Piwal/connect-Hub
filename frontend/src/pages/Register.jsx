@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
 import { MdOutlineMail } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
 import { MdDriveFileRenameOutline } from "react-icons/md";
 import XLogo from "../components/XLogo";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -16,19 +16,40 @@ const Register = () => {
     password: "",
   });
 
- useMutation() // used to manipulate data: CREATE, UPDATE, DELETE
-
+  const { mutate, isError, isPending, error } = useMutation({
+    mutationFn: async ({ email, username, fullName, password }) => {
+      try {
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, username, fullName, password }),
+        });
+        // if (!res.ok) throw new Error("Something went wrong");
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.error(error);
+        toast.error(error.message);
+      }
+    },
+    onSuccess: () => {
+      toast.success("Account created successfully...!");
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    mutate(formData);
     console.log(formData);
   };
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const isError = false;
 
   return (
     <div className="max-w-screen-xl mx-auto flex h-screen px-10">
@@ -91,9 +112,9 @@ const Register = () => {
             />
           </label>
           <button className="btn rounded-full btn-primary text-white">
-            Register
+            {isPending ? "Loading..." : "Register"}
           </button>
-          {isError && <p className="text-red-500">Something went wrong</p>}
+          {isError && <p className="text-red-500">{error.message}</p>}
         </form>
         <div className="flex flex-col lg:w-2/3 gap-2 mt-4">
           <p className="text-white text-lg">Already have an account?</p>
