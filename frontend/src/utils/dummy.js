@@ -1,8 +1,8 @@
 export const POSTS = [
   {
     _id: "1",
-    text: "Let's build a fullstack WhatsApp clone with NEXT.JS 14 😍",
-    img: "/posts/post1.png",
+    text: "Hello Guys... 😍",
+    img: "https://imgs.search.brave.com/ekDWwquN6z2-dk9tKwdIdNkm3z8msCiKXBt9P7txWhs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly82NC5t/ZWRpYS50dW1ibHIu/Y29tLzQ2YzlkNWM3/MzA1ODViODY3Zjhm/YzQwZmQ0YWJjMmM5/LzkyNWIyYmNmMDQ1/OTM0ZjMtOTUvczU0/MHg4MTAvZDEyZmUz/OGYzYTQ4ZDQ4NTY2/OGYzMTNmMjAyMWNi/ZDYwMWU1YWQwNy5q/cGc",
     user: {
       username: "johndoe",
       profileImg: "/avatars/boy1.png",

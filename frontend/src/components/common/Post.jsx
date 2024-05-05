@@ -10,15 +10,11 @@ const Post = ({ post }) => {
   const [comment, setComment] = useState("");
   const postOwner = post.user;
   const isLiked = false;
-
   const isMyPost = true;
-
   const formattedDate = "1h";
-
   const isCommenting = false;
 
   const handleDeletePost = () => {};
-
   const handlePostComment = (e) => {
     e.preventDefault();
   };
