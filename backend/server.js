@@ -3,12 +3,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { v2 as cloudinary } from "cloudinary";
-
 import authRoutes from "./Routes/auth.routes.js";
 import userRoutes from "./Routes/user.routes.js";
 import postRoutes from "./Routes/post.routes.js";
 import notificationRoutes from "./Routes/notification.routes.js";
-
 import connectMongoDB from "./db/connectMongoDB.js";
 
 dotenv.config();
