@@ -80,8 +80,7 @@ const Profile = () => {
                   >
                     <MdEdit className="w-5 h-5 text-white" />
                   </div>
-                )}
-
+                )}{" "}
                 <input
                   type="file"
                   hidden
@@ -143,7 +142,6 @@ const Profile = () => {
                   </span>
                   <span className="text-sm my-1">{user?.bio}</span>
                 </div>
-
                 <div className="flex gap-2 flex-wrap">
                   {user?.link && (
                     <div className="flex gap-1 items-center ">
