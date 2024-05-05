@@ -21,11 +21,12 @@ const Profile = () => {
 
   const user = {
     _id: "1",
-    fullName: "John Doe",
-    username: "johndoe",
-    profileImg: "/avatars/boy2.png",
-    coverImg: "/cover.png",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    fullName: "Cristiano Ronaldo",
+    username: "cr7tweets",
+    profileImg: "https://pbs.twimg.com/media/EpdmDJ8XUAM_Kqg.jpg",
+    coverImg:
+      "https://www.cristianoronaldo.com/assets/images/share.jpg?t=173174685",
+    bio: "Suiiiiiiiiiiiiiiiii..............!",
     link: "https://youtube.com/@asaprogrammer_",
     following: ["1", "2", "3"],
     followers: ["1", "2", "3"],
