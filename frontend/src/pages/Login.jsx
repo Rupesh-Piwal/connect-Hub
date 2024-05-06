@@ -11,7 +11,6 @@ const Login = () => {
     password: "",
   });
   const queryClient = useQueryClient();
-
   const {
     mutate: loginMutation,
     isPending,
@@ -27,7 +26,6 @@ const Login = () => {
           },
           body: JSON.stringify({ username, password }),
         });
-
         const data = await res.json();
         console.log(data);
 
@@ -39,10 +37,11 @@ const Login = () => {
       }
     },
     onSuccess: () => {
-      // refetch the authUser
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
     },
   });
+  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,7 +72,6 @@ const Login = () => {
               value={formData.username}
             />
           </label>
-
           <label className="input input-bordered rounded flex items-center gap-2">
             <MdPassword />
             <input
