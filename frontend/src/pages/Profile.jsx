@@ -17,21 +17,31 @@ const Profile = () => {
   const coverImgRef = useRef(null);
   const profileImgRef = useRef(null);
 
-  const isLoading = false;
-  const isMyProfile = true;
+  const { username } = useParams();
 
-  const user = {
-    _id: "1",
-    fullName: "Cristiano Ronaldo",
-    username: "cr7tweets",
-    profileImg: "https://pbs.twimg.com/media/EpdmDJ8XUAM_Kqg.jpg",
-    coverImg:
-      "https://www.cristianoronaldo.com/assets/images/share.jpg?t=173174685",
-    bio: "Suiiiiiiiiiiiiiiiii..............!",
-    link: "https://youtube.com/@asaprogrammer_",
-    following: ["1", "2", "3"],
-    followers: ["1", "2", "3"],
-  };
+  const { follow, isPending } = useFollow();
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+
+  const {
+    data: user,
+    isLoading,
+    refetch,
+    isRefetching,
+  } = useQuery({
+    queryKey: ["userProfile"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(`/api/users/profile/${username}`);
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || "Something went wrong");
+        }
+        return data;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+  });
 
   const handleImgChange = (e, state) => {
     const file = e.target.files[0];
