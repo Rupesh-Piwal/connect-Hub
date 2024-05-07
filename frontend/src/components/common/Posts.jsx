@@ -18,6 +18,7 @@ const Posts = ({ feedType, username, userId }) => {
       return "/api/posts/all"; // Default fallback
     }
   };
+
   const POST_ENDPOINT = getPostEndpoint();
   const {
     data: posts,
@@ -28,16 +29,14 @@ const Posts = ({ feedType, username, userId }) => {
     queryKey: ["posts"],
     queryFn: async () => {
       try {
-        const res = await fetch(POST_ENDPOINT);
-        const data = await res.json();
-
+        const res = await axios.get(POST_ENDPOINT);
+        const data = res.data;
         if (!res.ok) {
           throw new Error(data.error || "Something went wrong");
         }
-
         return data;
       } catch (error) {
-        throw new Error(error);
+        throw new Error(error.response?.data?.error || "Something went wrong");
       }
     },
   });
