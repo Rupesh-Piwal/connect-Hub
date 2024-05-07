@@ -9,6 +9,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import LoadingSpinner from "./LoadingSpinner";
 import { formatPostDate } from "../../utils";
+import axios from "axios";
 
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
@@ -18,49 +19,37 @@ const Post = ({ post }) => {
   const isLiked = post.likes.includes(authUser._id);
   const isMyPost = authUser._id === post.user._id;
   const formattedDate = formatPostDate(post.createdAt);
-  
+
   const { mutate: deletePost, isPending: isDeleting } = useMutation({
     mutationFn: async () => {
       try {
-        const res = await fetch(`/api/posts/${post._id}`, {
-          method: "DELETE",
-        });
-        const data = await res.json();
+        const response = await axios.delete(`/api/posts/${post._id}`); // Use Axios to send a DELETE request
+        const data = response.data; // Extract response data from Axios response object
 
-        if (!res.ok) {
-          throw new Error(data.error || "Something went wrong");
-        }
-        return data;
+        return data; // Return the data received from the API
       } catch (error) {
-        throw new Error(error);
+        throw new Error(error.response?.data?.error || "Something went wrong"); // Handle errors and throw an error message
       }
     },
     onSuccess: () => {
-      toast.success("Post deleted successfully");
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
+      toast.success("Post deleted successfully"); // Show a success message using toast notification
+      queryClient.invalidateQueries({ queryKey: ["posts"] }); // Invalidate (refresh) the "posts" query to update the UI
     },
   });
 
   const { mutate: likePost, isPending: isLiking } = useMutation({
     mutationFn: async () => {
       try {
-        const res = await fetch(`/api/posts/like/${post._id}`, {
-          method: "POST",
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data.error || "Something went wrong");
-        }
-        return data;
+        const response = await axios.post(`/api/posts/like/${post._id}`); // Use Axios to send a POST request
+        const data = response.data; // Extract response data from Axios response object
+
+        return data; // Return the data received from the API
       } catch (error) {
-        throw new Error(error);
+        throw new Error(error.response?.data?.error || "Something went wrong"); // Handle errors and throw an error message
       }
     },
     onSuccess: (updatedLikes) => {
-      // this is not the best UX, bc it will refetch all posts
-      // queryClient.invalidateQueries({ queryKey: ["posts"] });
-
-      // instead, update the cache directly for that post
+      // Update the cache directly for that post
       queryClient.setQueryData(["posts"], (oldData) => {
         return oldData.map((p) => {
           if (p._id === post._id) {
@@ -71,37 +60,36 @@ const Post = ({ post }) => {
       });
     },
     onError: (error) => {
-      toast.error(error.message);
+      toast.error(error.message); // Show error message using toast notification
     },
   });
 
   const { mutate: commentPost, isPending: isCommenting } = useMutation({
     mutationFn: async () => {
       try {
-        const res = await fetch(`/api/posts/comment/${post._id}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text: comment }),
-        });
-        const data = await res.json();
+        const response = await axios.post(
+          `/api/posts/comment/${post._id}`,
+          { text: comment },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ); // Use Axios to send a POST request with JSON data
+        const data = response.data; // Extract response data from Axios response object
 
-        if (!res.ok) {
-          throw new Error(data.error || "Something went wrong");
-        }
-        return data;
+        return data; // Return the data received from the API
       } catch (error) {
-        throw new Error(error);
+        throw new Error(error.response?.data?.error || "Something went wrong"); // Handle errors and throw an error message
       }
     },
     onSuccess: () => {
-      toast.success("Comment posted successfully");
-      setComment("");
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
+      toast.success("Comment posted successfully"); // Show success message using toast notification
+      setComment(""); // Clear comment text after successful post
+      queryClient.invalidateQueries({ queryKey: ["posts"] }); // Invalidate (refresh) the "posts" query to update the UI
     },
     onError: (error) => {
-      toast.error(error.message);
+      toast.error(error.message); // Show error message using toast notification
     },
   });
 
