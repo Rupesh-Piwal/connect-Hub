@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Register from "./pages/Register.jsx";
-import Login from "./pages/Login.jsx";
-import Notifications from "./pages/Notifications.jsx";
-import Profile from "./pages/Profile.jsx";
+import Home from "./pages/home/Home.jsx";
+import Register from "./pages/auth/Register.jsx";
+import Login from "./pages/auth/Login.jsx";
+import Notifications from "./pages/notification/Notifications.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 import Sidebar from "./components/common/Sidebar.jsx";
 import RightPanel from "./components/common/RightPanel.jsx";
 import Toaster from "react-hot-toast";
