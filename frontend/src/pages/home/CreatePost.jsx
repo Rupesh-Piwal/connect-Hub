@@ -6,6 +6,61 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 
 const CreatePost = () => {
+  const [text, setText] = useState("");
+  const [img, setImg] = useState(null);
+  const imgRef = useRef(null);
+
+  const { data: authUser } = useQuery({ queryKey: ["authUser"] });
+  const queryClient = useQueryClient();
+
+  const {
+    mutate: createPost,
+    isPending,
+    isError,
+    error,
+  } = useMutation({
+    mutationFn: async ({ text, img }) => {
+      try {
+        const response = await axios.post(
+          "/api/posts/create",
+          { text, img },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = response.data;
+
+        return data;
+      } catch (error) {
+        throw new Error(error.response?.data?.error || "Something went wrong");
+      }
+    },
+    onSuccess: () => {
+      setText("");
+      setImg(null);
+      toast.success("Post created successfully");
+      queryClient.invalidateQueries({ queryKey: ["posts"] }); // Invalidate (refresh) the "posts" query to update the UI
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createPost({ text, img });
+  };
+
+  const handleImgChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImg(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="flex p-4 items-start gap-4 border-b border-gray-700">
       <div className="avatar">
@@ -60,5 +115,4 @@ const CreatePost = () => {
     </div>
   );
 };
-
 export default CreatePost;
