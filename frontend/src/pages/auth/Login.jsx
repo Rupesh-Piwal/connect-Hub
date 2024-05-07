@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineMail } from "react-icons/md";
 import { MdPassword } from "react-icons/md";
-import XLogo from "../components/XLogo";
+import XLogo from "../../components/XLogo";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const Login = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Posts from "../components/common/Posts.jsx";
+import Posts from "../../components/common/Posts.jsx";
 import CreatePost from "../components/CreatePost.jsx";
 
 

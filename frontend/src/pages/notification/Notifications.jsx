@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
-import LoadingSpinner from "../components/common/LoadingSpinner";
+import LoadingSpinner from "../../components/common/LoadingSpinner";
 
 const Notifications = () => {
   const isLoading = false;
