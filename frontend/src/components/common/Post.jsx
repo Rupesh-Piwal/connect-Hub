@@ -5,6 +5,10 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import LoadingSpinner from "./LoadingSpinner";
+import { formatPostDate } from "../../utils/date";
+import { toast } from "react-hot-toast";
 
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
@@ -15,7 +19,31 @@ const Post = ({ post }) => {
   const isMyPost = authUser._id === post.user._id;
   const formattedDate = formatPostDate(post.createdAt);
 
-  const handleDeletePost = () => {};
+  const { mutate: deletePost, isPending: isDeleting } = useMutation({
+    mutationFn: async () => {
+      try {
+        const res = await fetch(`/api/posts/${post._id}`, {
+          method: "DELETE",
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || "Something went wrong");
+        }
+        return data;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+    onSuccess: () => {
+      toast.success("Post deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+    },
+  });
+
+  const handleDeletePost = () => {
+    deletePost();
+  };
   const handlePostComment = (e) => {
     e.preventDefault();
   };
