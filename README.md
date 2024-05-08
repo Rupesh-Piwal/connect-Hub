@@ -1,6 +1,6 @@
 # ConnectHub 🌐
 
-ConnectHub is a social networking web application inspired by Twitter, designed to connect people and share thoughts, updates, and conversations.
+ConnectHub is a social networking web application inspired by Twitter X, designed to connect people and share thoughts, updates, and conversations.
 
 <!-- ![ConnectHub Screenshot](/path/to/screenshot.png) -->
 
