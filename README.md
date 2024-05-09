@@ -17,7 +17,7 @@ ConnectHub is a social networking web application inspired by Twitter X, designe
 
 - **Frontend**:
   - React.js with Hooks
-  - Tailwind CSS for styling
+  - Tailwind CSS 
   - Axios for HTTP requests
   - React Query for state management and data fetching
 
